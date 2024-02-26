@@ -11,8 +11,10 @@ export class RegisterComponent {
     name: null,
     surname: null,
     email: null,
-    password: null
+    password: null,
+    confirmPassword: null,
   };
+  
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -20,11 +22,15 @@ export class RegisterComponent {
   constructor(private loginService: LoginService) { }
 
   onSubmit(): void {
-    const { name, surname, email, password } = this.form;
+    const { name, surname, email, password, confirmPassword } = this.form;
+    /*console.log(name);
+    console.log(surname);
+    console.log(email);
+    console.log(password);
+    console.log(confirmPassword);*/
 
-    this.loginService.register(name,surname, email, password).subscribe({
+    this.loginService.register(name,surname, email, password, confirmPassword).subscribe({
       next: data => {
-        console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
       },

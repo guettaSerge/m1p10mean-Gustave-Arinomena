@@ -8,8 +8,8 @@
       @if (!isSuccessful) {
       <form
         name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
         #f="ngForm"
+        (ngSubmit)="f.form.valid && onSubmit()"
         novalidate
       >
         <div class="form-group">
@@ -115,6 +115,30 @@
           </div>
           }
         </div>
+
+        <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="confirmPassword"
+              [(ngModel)]="form.confirmPassword"
+              required
+              minlength="6"
+              #confirmPassword="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.errors }"
+            />
+            @if (confirmPassword.errors && f.submitted) {
+            <div class="invalid-feedback">
+              @if (confirmPassword.errors['required']) {
+              <div>This section is required</div>
+              }
+              @if (confirmPassword.errors['minlength']) {
+              <div>This section must be at least 6 characters</div>
+              }
+            </div>
+            }
+          </div>
         <div class="form-group">
           <button class="btn btn-primary btn-block">Sign Up</button>
         </div>

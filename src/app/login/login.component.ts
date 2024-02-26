@@ -9,7 +9,7 @@ import { ResisterService } from '../shared/resister.service';
 })
 export class LoginComponent implements OnInit {
   form: any = {
-    username: null,
+    email: null,
     password: null
   };
   isLoggedIn = false;
@@ -22,20 +22,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.resiterService.isLoggedIn()) {
       this.isLoggedIn = true;
-      this.roles = this.resiterService.getUser().roles;
     }
   }
 
   onSubmit(): void {
-    const { username, password } = this.form;
+    const { email, password } = this.form;
 
-    this.loginService.login(username, password).subscribe({
+    this.loginService.login(email, password).subscribe({
       next: data => {
         this.resiterService.saveUser(data);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.resiterService.getUser().roles;
         this.reloadPage();
       },
       error: err => {
