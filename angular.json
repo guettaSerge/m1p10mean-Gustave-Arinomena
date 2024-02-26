@@ -21,13 +21,27 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/assets/template/img/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/template/css/style.css",
+              "src/assets/template/lib/animate/animate.min.css",
+              "src/assets/template/lib/owlcarousel/assets/owl.carousel.min.css",
+              "src/assets/template/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/template/lib/easing/easing.min.js",
+              "src/assets/template/lib/waypoints/waypoints.min.js",
+              "src/assets/template/lib/counterup/counterup.min.js",
+              "src/assets/template/lib/owlcarousel/owl.carousel.min.js",
+              "src/assets/template/lib/tempusdominus/js/moment.min.js",
+              "src/assets/template/lib/tempusdominus/js/moment-timezone.min.js",
+              "src/assets/template/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js",
+              "src/assets/template/mail/jqBootstrapValidation.min.js",
+              "src/assets/template/mail/contact.js",
+              "src/assets/template/js/main.js"
+            ]
           },
           "configurations": {
             "production": {

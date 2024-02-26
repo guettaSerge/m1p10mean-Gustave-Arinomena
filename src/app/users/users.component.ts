@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-users',
+  selector: 'users',
+  templateUrl: './users.component.html',
   standalone: true,
   imports: [],
-  templateUrl: './users.component.html',
+  
 })
 export class UsersComponent {
 
