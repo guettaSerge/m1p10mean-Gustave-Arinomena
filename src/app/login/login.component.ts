@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../shared/login.service';
 import { ResisterService } from '../shared/resister.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private loginService: LoginService, private resiterService: ResisterService) { }
+  constructor(private loginService: LoginService, private resiterService: ResisterService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.resiterService.isLoggedIn()) {
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.reloadPage();
+        this.router.navigate(['/reservation']);
       },
       error: err => {
         this.errorMessage = err.error.message;
@@ -43,7 +44,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  reloadPage(): void {
-    window.location.reload();
-  }
 }
